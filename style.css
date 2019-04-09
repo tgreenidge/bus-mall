@@ -1,0 +1,9 @@
+
+#image-choices img {
+  width: 33%;
+  margin: 1.25px;
+  height: 200px;
+  float: left;
+  border: 1px solid black;
+}
+
