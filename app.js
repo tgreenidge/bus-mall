@@ -73,7 +73,7 @@ var displayImageStats = function(){
     liEl.textContent = `${imageLibrary[i].numClicks} votes for ${imageLibrary[i].name}`;
     ulEl.appendChild(liEl);
   }
-  imageContainer.appendChild(ulEl);
+  imageStatsContainer.appendChild(ulEl);
 };
 
 var handleUserClick = function(event) {
