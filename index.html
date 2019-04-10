@@ -5,16 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bus Mall</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="image-choices">
-    <img id="" src="" alt="" title="" />
-    <img id="" src="" alt="" title="" />
-    <img id="" src="" alt="" title="" />
-  </div>
+  <main>
+    <header>
+      <nav>
+        <a href="/"><i class="fas fa-bus-alt"></i></a><span>BusMall</span>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div id="image-stats"></div>
-  <script src="app.js"></script>
+    <div>
+      <aside>
+        <h2>Results</h2>
+        <div id="image-stats"></div>
+      </aside>
+      <div>
+        <div id="image-choices">
+          <img id="" src="" alt="" title="" />
+          <img id="" src="" alt="" title="" />
+          <img id="" src="" alt="" title="" />
+        </div>
+        <div><button>Vote</button></div>
+        <section>
+          Morbi ultricies ultrices mauris eget pharetra. Fusce lacus neque, porta nec lacus ac, laoreet ultrices enim. Sed eu elit sed velit mollis ullamcorper nec sed sem. Proin vitae augue ligula. Praesent sagittis, lacus non posuere ultricies, mauris lacus vestibulum eros, id suscipit justo quam in turpis. Vestibulum id odio eu libero pellentesque accumsan id vitae turpis. In euismod lobortis massa id scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce laoreet cursus quam, vel pellentesque ipsum. Vestibulum viverra sollicitudin neque tempus pulvinar. Nullam imperdiet eros sit amet massa fringilla ultricies. Aliquam eget pretium justo. Donec molestie dictum porttitor. Vestibulum auctor rutrum nisl, in laoreet odio lacinia pretium. Integer nisi elit, lobortis ut interdum id, consequat sed magna.
+        </section>
+      </div>
+      
+    </div>
+    
+    <canvas id="votes-chart" width="800px" height="400px"></canvas>
+  </main>
+  <footer> Footer </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="js/barchart.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
