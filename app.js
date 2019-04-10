@@ -21,6 +21,8 @@ var previousImagesSelections = [];
 // holds indices of images in current selection Options
 var currentImageSelections = [];
 
+
+
 // Image constructor with name of image, and format (jgp, gif, png)
 var Image = function(name, format) {
   this.name = name;
@@ -28,6 +30,12 @@ var Image = function(name, format) {
   this.numClicks = 0;
   this.numTimesDisplayed = 0;
   imageLibrary.push(this);
+
+  //votes array keeps tally for all images by index number in image library - declared in barchart.js
+  votes.push(0);
+
+  //imageNames array keeps track of names for all images by index number in image library - declared in barchart.js
+  imageNames.push(name);
 };
 
 // generates a random number between min and max inclusive
@@ -79,7 +87,6 @@ var displayImageStats = function(){
 var handleUserClick = function(event) {
   event.preventDefault();
 
-  
   // get image clicked
   var imageCickedId = event.target.id;
   var imageCicked = imageLibrary[imageCickedId];
@@ -87,16 +94,20 @@ var handleUserClick = function(event) {
   // add 1 to image stats
   imageCicked.numClicks++;
 
+  //add 1 to total votes fir pic index in votes array
+  votes[imageCickedId]++;
+
   // add 1 to total clicks
   totalClicks++;
+
+  // update bar chart
+  votesBarChart.update();
   console.log(totalClicks);
   if(totalClicks === maxTotalClicks){
     console.log('Max clicks submitted. Removing event listener...');
     imageContainer.removeEventListener('click', handleUserClick); 
     displayImageStats(); 
   } else {
-    console.table(imageLibrary);
-
     // make previous = current
     previousImagesSelections = currentImageSelections;
 
@@ -137,4 +148,4 @@ new Image('wine-glass', 'jpg');
 
 getNewImageSelections();
 showNewImageSelections();
-
+drawChart();
