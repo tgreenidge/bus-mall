@@ -5,6 +5,7 @@ var votesBarChart;
 
 //keeps track of votes tally for all images by index number in image library
 var votes = [];
+//localStorage.setItem('votes', []);
 
 //keeps track of names for all images by index number in image library
 var imageNames = [];
@@ -41,4 +42,9 @@ var drawChart = function() {
       }]
     }
   });
+};
+
+var showChart = function() {
+  var canvasElement = document.querySelectorAll('canvas')[0];
+  canvasElement.style.visibility = 'visible';
 };

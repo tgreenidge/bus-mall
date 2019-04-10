@@ -101,6 +101,7 @@ canvas {
   margin: 0 auto;
   margin-bottom: 3em;
   padding: 2em;
+  visibility: hidden;
 }
 
 footer {

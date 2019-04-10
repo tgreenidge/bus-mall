@@ -107,6 +107,7 @@ var handleUserClick = function(event) {
     console.log('Max clicks submitted. Removing event listener...');
     imageContainer.removeEventListener('click', handleUserClick);
     displayImageStats();
+    showChart();
   } else {
     // make previous = current
     previousImagesSelections = currentImageSelections;
