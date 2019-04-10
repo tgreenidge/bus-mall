@@ -102,11 +102,11 @@ var handleUserClick = function(event) {
 
   // update bar chart
   votesBarChart.update();
-  console.log(totalClicks);
+
   if(totalClicks === maxTotalClicks){
     console.log('Max clicks submitted. Removing event listener...');
-    imageContainer.removeEventListener('click', handleUserClick); 
-    displayImageStats(); 
+    imageContainer.removeEventListener('click', handleUserClick);
+    displayImageStats();
   } else {
     // make previous = current
     previousImagesSelections = currentImageSelections;
@@ -118,7 +118,6 @@ var handleUserClick = function(event) {
     getNewImageSelections();
     showNewImageSelections();
   }
-
 };
 
 // add event listener on userClick

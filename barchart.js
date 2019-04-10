@@ -18,8 +18,8 @@ var drawChart = function() {
       labels: imageNames,
       datasets: [{
         label: 'Votes Tally',
-        backgroundColor: 'rgb(255, 98, 102)',
-        borderColor: 'rgb(255, 98, 102)',
+        backgroundColor: 'rgb(255, 98, 0)',
+        borderColor: 'rgb(255, 98, 0)',
         hoverBackgroundColor: 'rgb(255, 96, 182)',
         data: votes
       }]
