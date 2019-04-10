@@ -89,7 +89,7 @@ button {
 button:hover {
   background: black;
   color: #ff6200;
-  transition: background color 350ms ease-out;
+  transition: background 350ms ease-out;
 }
 
 section {
