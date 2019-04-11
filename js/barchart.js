@@ -4,11 +4,7 @@
 var votesBarChart;
 
 //keeps track of votes tally for all images by index number in image library
-var votes = [];
-//localStorage.setItem('votes', []);
-
-//keeps track of names for all images by index number in image library
-var imageNames = [];
+// var votes = [];
 
 // drawsBarChartOnCanvas
 var drawChart = function() {
@@ -16,13 +12,13 @@ var drawChart = function() {
   votesBarChart = new Chart (ctx, {
     type: 'bar',
     data: {
-      labels: imageNames,
+      labels: JSON.parse(localStorage.getItem('imageNames')),
       datasets: [{
         label: 'Votes Tally',
         backgroundColor: 'rgb(255, 98, 0)',
         borderColor: 'rgb(255, 98, 0)',
         hoverBackgroundColor: 'rgb(255, 96, 182)',
-        data: votes
+        data: getStorageVotes()
       }]
     },
     options: {
@@ -47,4 +43,5 @@ var drawChart = function() {
 var showChart = function() {
   var canvasElement = document.querySelectorAll('canvas')[0];
   canvasElement.style.visibility = 'visible';
+  drawChart();
 };
