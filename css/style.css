@@ -81,7 +81,8 @@ button {
   text-align: center;
   background: #ff6200;
   padding: 10px;
-  display: block;
+  display: none;
+  /* display: block; */
   margin-left: auto;
   margin-right: auto;
 }

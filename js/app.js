@@ -10,7 +10,8 @@ var imagesOnPage = imageContainer.getElementsByTagName('img');
 var imageLibrary = [];
 
 // max number of clicks allowed
-var maxTotalClicks = 25;
+var maxTotalClicks = parseInt(localStorage.getItem('maxTotalClicks'));
+console.log(maxTotalClicks);
 
 // holds indices of images in previous selection Options
 var previousImagesSelections = [];
@@ -61,7 +62,6 @@ var generateRandomNumber = function (min, max) {
 var getNewImageSelections = function() {
   var counter = 0;
   var randomImageIndex;
-  console.log(imageLibrary);
   while (counter < 3) {
     randomImageIndex = generateRandomNumber(0, imageLibrary.length - 1);
     // check for dupes in image container and previous image container with current selection
@@ -102,6 +102,7 @@ var displayImageStats = function(){
 };
 
 var handleUserClick = function(event) {
+  console.log(localStorage);
   event.preventDefault();
 
   // get image clicked
@@ -170,6 +171,7 @@ var initializeImageLibrary = function() {
 
 if (!localStorage.getItem('totalClicks')) {
   localStorage.setItem('totalClicks', '0');
+  localStorage.setItem('maxTotalClicks', '25');
   localStorage.setItem('votes', JSON.stringify([]));
   localStorage.setItem('imageNames', JSON.stringify([]));
   initializeImageLibrary();
@@ -181,11 +183,17 @@ if (!localStorage.getItem('totalClicks')) {
   imageContainer.addEventListener('click', handleUserClick);
 } else {
   var totalClicks = JSON.parse(localStorage.getItem('totalClicks'));
+  var maxTotalClicks = parseInt(localStorage.getItem('maxTotalClicks'));
   if(totalClicks === maxTotalClicks){
-    alert('you have reached the max votes');
-    console.log('Max clicks submitted. No event listener...');
-    displayImageStats();
-    showChart();
+    alert('you have reached the max votes, REFRESH PAGE to vote again');
+    maxTotalClicks += 25;
+    localStorage.setItem('maxTotalClicks', JSON.stringify(maxTotalClicks));
+    imageContainer.addEventListener('click', handleUserClick);
+    //console.log('Max clicks submitted. No event listener...');
+    // displayImageStats();
+    // showChart();
+    // getNewImageSelections();
+    // showNewImageSelections();
   } else {
     imageContainer.addEventListener('click', handleUserClick);
     initializeImageLibrary();
